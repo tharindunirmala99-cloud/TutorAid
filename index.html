@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="TutorAid offers personalized online tutoring with top-rated tutors, interactive learning, and global reach. Boost your learning journey today!">
+    <meta name="keywords"
+        content="online tutoring, personalized learning, TutorAid, education, tutors, learning platform">
+    <meta property="og:title" content="TutorAid - Personalized Online Tutoring">
+    <meta property="og:description"
+        content="Personalized online tutoring with top-rated tutors and interactive learning.">
+    <meta property="og:image" content="assets/logo.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <title>TutorAid</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f5c400",
+                        "secondary": "#1BAA4B",
+                        "background-light": "#fcfbf8",
+                        "background-dark": "#231f0f",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d2818",
+                        "text-dark": "#1d190c",
+                        "text-light": "#fcfbf8",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <script type="importmap">
+{
+    "imports": {
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+    }
+}
+</script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-body text-text-dark dark:text-text-light antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
