@@ -104,12 +104,12 @@ const TutorsPage: React.FC = () => {
                     ))}
                   </div>
                   <div className="mt-auto pt-6 flex gap-2">
-                    <button className="flex-1 py-2 bg-primary hover:bg-yellow-400 text-black font-bold rounded-lg transition-colors text-sm">
+                    {/* <button className="flex-1 py-2 bg-primary hover:bg-yellow-400 text-black font-bold rounded-lg transition-colors text-sm">
                       Book Session
-                    </button>
-                    <button className="px-4 py-2 border-2 border-neutral-200 dark:border-neutral-700 hover:border-primary dark:hover:border-primary rounded-lg transition-colors">
+                    </button> */}
+                    {/* <button className="px-4 py-2 border-2 border-neutral-200 dark:border-neutral-700 hover:border-primary dark:hover:border-primary rounded-lg transition-colors">
                       <span className="material-symbols-outlined text-neutral-600 dark:text-neutral-400">visibility</span>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
