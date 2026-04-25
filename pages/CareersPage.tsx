@@ -87,7 +87,7 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
+      {/* <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
         <div className="max-w-[800px] mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-black mb-6 font-display dark:text-white">
             Don't see your role?
@@ -99,7 +99,7 @@ const CareersPage: React.FC = () => {
             Send Resume
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
