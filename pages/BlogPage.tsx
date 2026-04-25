@@ -112,7 +112,7 @@ const BlogPage: React.FC = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
+      {/* <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
         <div className="max-w-[800px] mx-auto text-center">
           <div className="bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/5 dark:to-secondary/5 rounded-2xl p-8 md:p-12">
             <span className="material-symbols-outlined text-5xl text-primary mb-4">mail</span>
@@ -134,7 +134,7 @@ const BlogPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Popular Topics */}
       <section className="py-16 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-background-dark">
