@@ -10,13 +10,13 @@ import TopRatedTutors from '../components/TopRatedTutors';
 import TestimonialsSection from '../components/TestimonialsSection';
 import LearningHub from '../components/LearningHub';
 import WhatsAppButton from '@/components/WhatsAppBtn';
-import SnowfallEffect from '@/components/Effects/SnowfallEffect';
+// import SnowfallEffect from '@/components/Effects/SnowfallEffect';
 
 const LandingPage: React.FC = () => {
   return (
     <div className="w-full overflow-x-hidden">
       <HeroSection />
-      <SnowfallEffect />
+      {/* <SnowfallEffect /> */}
       <WhatsAppButton />
       <ServingGlobally />
       <WhyChooseUs />

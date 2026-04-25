@@ -10,22 +10,7 @@ const WhatsAppButton: React.FC = () => (
     href={whatsappUrl}
     target="_blank"
     rel="noopener noreferrer"
-    style={{
-      position: 'fixed',
-      right: '2rem',
-      bottom: '2rem',
-      zIndex: 1000,
-      background: '#25D366',
-      borderRadius: '50%',
-      width: '64px',
-      height: '64px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
-      color: 'white',
-      textDecoration: 'none',
-    }}
+    className="whatsapp-btn"
     title="Chat on WhatsApp"
   >
     <FaWhatsapp size={36} />

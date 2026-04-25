@@ -91,13 +91,12 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
     className="fixed inset-0 z-50 flex flex-col items-center justify-start pt-14 gap-6 lg:hidden transition-all"
     
   >
-    <nav style={{ backgroundColor: 'white', color: 'black', opacity: 0.95 }} className="flex flex-col items-center gap-4 w-full">
+    <nav className="navbar-mobile-nav flex flex-col items-center gap-4 w-full">
       {navItems.map((item) => (
         <Link
-        style={{  color: 'black' }}
           key={item.name}
           to={item.path}
-          className={`w-full text-center text-lg font-medium hover:text-primary transition-colors py-2 ${
+          className={`navbar-mobile-link w-full text-center text-lg font-medium hover:text-primary transition-colors py-2 ${
             location.pathname === item.path
               ? 'text-primary font-bold'
               : 'text-black dark:text-text-light'
@@ -108,9 +107,8 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
         </Link>
       ))}
     <button
-      style={{ borderRadius: '20px', backgroundColor: 'white', color: 'black', opacity: 0.9, width: '100%' }}
+      className="navbar-mobile-menu p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-black dark:text-white"
       onClick={() => { onToggleDarkMode(); setMenuOpen(false); }}
-      className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-black dark:text-white"
       title="Toggle Theme"
     >
       <span className="material-symbols-outlined text-xl">
