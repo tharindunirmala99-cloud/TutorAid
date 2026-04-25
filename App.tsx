@@ -13,6 +13,7 @@ import CareersPage from './pages/CareersPage';
 import Footer from './components/Footer';
 //import SnowfallEffect from './components/Effects/SnowfallEffect';
 import "./index.css"
+import ScrollToTop from './components/Functions/ScrollToTop';
 
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -25,6 +26,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
+        <ScrollToTop />
         <Navbar onToggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
         {/* <SnowfallEffect /> */}
         <main className="flex-grow">
