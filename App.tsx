@@ -6,12 +6,12 @@ import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/AboutPage';
 import SubjectsPage from './pages/SubjectsPage';
 import TutorsPage from './pages/TutorsPage';
-import PricingPage from './pages/PricingPage';
+// import PricingPage from './pages/PricingPage';
 import BlogPage from './pages/BlogPage';
 import CareersPage from './pages/CareersPage';
-import AIPromptSection from './components/AIPromptSection';
+// import AIPromptSection from './components/AIPromptSection';
 import Footer from './components/Footer';
-import SnowfallEffect from './components/Effects/SnowfallEffect';
+//import SnowfallEffect from './components/Effects/SnowfallEffect';
 import "./index.css"
 
 const App: React.FC = () => {
@@ -38,7 +38,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/subjects" element={<SubjectsPage />} />
             <Route path="/tutors" element={<TutorsPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
+            {/* <Route path="/pricing" element={<PricingPage />} /> */}
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/careers" element={<CareersPage />} />
           </Routes>

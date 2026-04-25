@@ -90,7 +90,7 @@ const BookingForm: React.FC = () => {
   };
 
   const countries = [
-    'United States', 'United Kingdom', 'Canada', 'Australia', 'Germany',
+    'Sri Lanka', 'United States', 'United Kingdom', 'Canada', 'Australia', 'Germany',
     'France', 'UAE', 'Saudi Arabia', 'India', 'Singapore', 'Malaysia',
     'Other'
   ];

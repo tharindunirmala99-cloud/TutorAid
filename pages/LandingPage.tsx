@@ -22,7 +22,9 @@ const LandingPage: React.FC = () => {
       <WhyChooseUs />
       <SubjectsSection />
       <HowItWorks />
-      <BookingForm />
+      <section id="booking-form" className="scroll-mt-28">
+        <BookingForm />
+      </section>
       <TopRatedTutors />
       <TestimonialsSection />
       <LearningHub />

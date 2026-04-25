@@ -8,13 +8,16 @@ const TopRatedTutors: React.FC = () => {
     <section className="section-container bg-background-light dark:bg-background-dark">
       <div className="section-inner">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+
           <div className="text-center md:text-left">
             <h2 className="section-heading mb-2 dark:text-white">Top Rated Tutors</h2>
             <p className="section-subheading">Expert guidance from our highest-rated educators.</p>
           </div>
+
           <Link to="/tutors" className="text-primary font-bold hover:underline flex items-center gap-1 group">
             View all tutors <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </Link>
+          
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TUTORS.map((tutor) => (

@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
               <li><Link to="/tutors" className="hover:text-primary transition-colors cursor-pointer">Find a Tutor</Link></li>
               <li><Link to="/about" className="hover:text-primary transition-colors cursor-pointer">Become a Tutor</Link></li>
               <li><Link to="/subjects" className="hover:text-primary transition-colors cursor-pointer">Online Classes</Link></li>
-              <li><Link to="/pricing" className="hover:text-primary transition-colors cursor-pointer">Pricing Plans</Link></li>
+              {/* <li><Link to="/pricing" className="hover:text-primary transition-colors cursor-pointer">Pricing Plans</Link></li> */}
             </ul>
           </div>
           
