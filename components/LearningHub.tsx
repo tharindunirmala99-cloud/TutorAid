@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS } from '../constants';
+import { BLOG_POSTS } from '../constants/constants';
 
 const LearningHub: React.FC = () => {
   return (

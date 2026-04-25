@@ -1,5 +1,5 @@
 
-import { Tutor, Testimonial, BlogPost, PricingPlan } from './types';
+import { Tutor, Testimonial, BlogPost, PricingPlan } from '../types';
 
 export const TUTORS: Tutor[] = [
   {

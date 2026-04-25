@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { TUTORS } from '../constants';
+import { TUTORS } from '../constants/constants';
 
 const TutorsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');

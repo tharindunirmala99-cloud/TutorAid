@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PRICING_PLANS } from '../constants';
+import { PRICING_PLANS } from '../constants/constants';
 
 const PricingSection: React.FC = () => {
   return (

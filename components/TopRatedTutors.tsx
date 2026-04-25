@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TUTORS } from '../constants';
+import { TUTORS } from '../constants/constants';
 
 const TopRatedTutors: React.FC = () => {
   return (

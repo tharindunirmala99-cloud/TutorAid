@@ -20,9 +20,11 @@ const HeroSection: React.FC = () => {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link to="/pricing" className="btn-primary-full">
+
+              <Link to="/#booking-form" className="btn-primary-full">
                 Book Free Trial
               </Link>
+              
               <Link to="/tutors" className="btn-secondary-full">
                 Browse Tutors
               </Link>

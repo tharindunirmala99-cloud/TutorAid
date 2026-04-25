@@ -10,9 +10,22 @@ import TopRatedTutors from '../components/TopRatedTutors';
 import TestimonialsSection from '../components/TestimonialsSection';
 import LearningHub from '../components/LearningHub';
 import WhatsAppButton from '@/components/WhatsAppBtn';
+import { useLocation } from 'react-router-dom'; // 
+
 // import SnowfallEffect from '@/components/Effects/SnowfallEffect';
 
 const LandingPage: React.FC = () => {
+  const location = useLocation();
+  const bookingFormRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    if (location.hash === '#booking-form') {
+      const element = document.getElementById('booking-form');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="w-full overflow-x-hidden">
       <HeroSection />
@@ -22,15 +35,15 @@ const LandingPage: React.FC = () => {
       <WhyChooseUs />
       <SubjectsSection />
       <HowItWorks />
-      <section id="booking-form" className="scroll-mt-28">
-        <BookingForm />
-      </section>
+      <div id="booking-form" ref={bookingFormRef} className="scroll-mt-28">
+          <BookingForm />
+        </div>
       <TopRatedTutors />
       <TestimonialsSection />
       <LearningHub />
-      <section id="contact-form" className="scroll-mt-28">
+      <div id="contact-form" className="scroll-mt-28">
         <ContactForm />
-      </section>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS } from '../constants';
+import { BLOG_POSTS } from '../constants/constants';
 
 const BlogPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
