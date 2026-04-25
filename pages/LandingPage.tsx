@@ -17,6 +17,7 @@ import { useLocation } from 'react-router-dom'; //
 const LandingPage: React.FC = () => {
   const location = useLocation();
   const bookingFormRef = React.useRef<HTMLDivElement>(null);
+  const contactFormRef = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
     if (location.hash === '#booking-form') {
       const element = document.getElementById('booking-form');
@@ -24,6 +25,12 @@ const LandingPage: React.FC = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    if (location.hash === '#contact-form') {
+      const element = document.getElementById('contact-form');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
   }, [location]);
 
   return (
@@ -41,7 +48,7 @@ const LandingPage: React.FC = () => {
       <TopRatedTutors />
       <TestimonialsSection />
       <LearningHub />
-      <div id="contact-form" className="scroll-mt-28">
+      <div id="contact-form" ref={contactFormRef} className="scroll-mt-28">
         <ContactForm />
       </div>
     </div>

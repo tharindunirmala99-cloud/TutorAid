@@ -125,10 +125,10 @@ const AboutPage: React.FC = () => {
             Join thousands of students who are achieving their academic goals with TutorAid.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/pricing" className="px-8 py-3 bg-primary hover:bg-yellow-400 text-black font-bold rounded-lg transition-colors shadow-md">
+            <Link to="/#booking-form" className="px-8 py-3 bg-primary hover:bg-yellow-400 text-black font-bold rounded-lg transition-colors shadow-md">
               Get Started Today
             </Link>
-            <Link to="/about" className="px-8 py-3 border-2 border-primary text-text-dark dark:text-white hover:bg-primary/10 font-bold rounded-lg transition-colors">
+            <Link to="/#contact-form" className="px-8 py-3 border-2 border-primary text-text-dark dark:text-white hover:bg-primary/10 font-bold rounded-lg transition-colors">
               Contact Us
             </Link>
           </div>

@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold text-white">Support</h3>
             <ul className="flex flex-col gap-2 text-sm text-neutral-400">
               <li><Link to="/about" className="hover:text-primary transition-colors cursor-pointer">Help Center</Link></li>
-              <li><Link to="/about" className="hover:text-primary transition-colors cursor-pointer">Contact Us</Link></li>
+              <li><Link to="/#contact-form" className="hover:text-primary transition-colors cursor-pointer">Contact Us</Link></li>
               <li><a className="hover:text-primary transition-colors cursor-pointer">Terms of Service</a></li>
               <li><a className="hover:text-primary transition-colors cursor-pointer">Privacy Policy</a></li>
             </ul>

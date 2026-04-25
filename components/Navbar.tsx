@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
+
 
 interface NavbarProps {
   onToggleDarkMode: () => void;
@@ -20,6 +22,16 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
     { name: 'Blog', path: '/blog' },
     { name: 'Careers', path: '/careers' }
   ];
+  const navigate = useNavigate();
+
+  const handleBookTrial = () => {
+    navigate('/#booking-form');
+    // Optionally, small delay for DOM to update if needed
+    setTimeout(() => {
+      document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' });
+    }, );
+  };
+  
 
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f4f1e6] bg-surface-light/95 backdrop-blur px-6 py-3 shadow-sm md:px-10 dark:border-b-neutral-800 dark:bg-surface-dark/95">
@@ -57,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
               {isDarkMode ? 'light_mode' : 'dark_mode'}
             </span>
           </button>
-          <button className="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-yellow-400 text-black text-sm font-bold leading-normal tracking-[0.015em] transition-all">
+          <button onClick={handleBookTrial} className="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-yellow-400 text-black text-sm font-bold leading-normal tracking-[0.015em] transition-all">
             <span className="truncate">Book Free Trial Session</span>
           </button>
         </div>
@@ -117,7 +129,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
     </button>
     </nav>
 
-    <button className="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-yellow-400 text-black text-sm font-bold leading-normal tracking-[0.015em] transition-all mt-4">
+    <button onClick={handleBookTrial} className="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-yellow-400 text-black text-sm font-bold leading-normal tracking-[0.015em] transition-all mt-4">
       <span className="truncate">Book Free Trial Session</span>
     </button>
     <button
