@@ -10,18 +10,18 @@ const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
-      <div className="max-w-[1200px] mx-auto">
+    <section className="section-container bg-white dark:bg-surface-dark">
+      <div className="section-inner">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-black md:text-4xl dark:text-white mb-4 font-display">Why choose tutorAID?</h2>
-          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          <h2 className="section-heading dark:text-white mb-4">Why choose tutorAID?</h2>
+          <p className="section-subheading max-w-2xl mx-auto">
             We provide the tools and support needed for academic success, tailored to each student's unique journey.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, idx) => (
-            <div key={idx} className="flex flex-col gap-4 rounded-xl border border-neutral-100 bg-background-light p-6 shadow-sm hover:shadow-md transition-all dark:bg-background-dark dark:border-neutral-800">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-black">
+            <div key={idx} className="card gap-4 rounded-xl border border-neutral-100 bg-background-light p-6 shadow-sm card-hover dark:bg-background-dark dark:border-neutral-800">
+              <div className="icon-circle">
                 <span className="material-symbols-outlined">{feature.icon}</span>
               </div>
               <h3 className="text-lg font-bold dark:text-white">{feature.title}</h3>

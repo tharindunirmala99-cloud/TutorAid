@@ -5,12 +5,12 @@ import { BLOG_POSTS } from '../constants';
 
 const LearningHub: React.FC = () => {
   return (
-    <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
-      <div className="max-w-[1200px] mx-auto">
+    <section className="section-container bg-white dark:bg-surface-dark">
+      <div className="section-inner">
         <div className="flex justify-between items-end mb-10">
           <div>
-            <h2 className="text-3xl font-black mb-2 font-display dark:text-white">Learning Hub</h2>
-            <p className="text-neutral-600 dark:text-neutral-400">Tips, tricks, and advice for academic success.</p>
+            <h2 className="section-heading dark:text-white">Learning Hub</h2>
+            <p className="section-subheading">Tips, tricks, and advice for academic success.</p>
           </div>
           <Link to="/blog" className="text-primary font-bold hover:underline hidden md:block cursor-pointer">Read more articles</Link>
         </div>

@@ -62,8 +62,8 @@ const SubjectsPage: React.FC = () => {
       </section>
 
       {/* Subjects Grid */}
-      <section className="py-16 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-background-dark">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="section-container bg-background-light dark:bg-background-dark">
+        <div className="section-inner">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredSubjects.map((subject, idx) => (
               <div 
@@ -98,9 +98,9 @@ const SubjectsPage: React.FC = () => {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black mb-12 text-center font-display dark:text-white">
+      <section className="section-container bg-white dark:bg-surface-dark">
+        <div className="section-inner">
+          <h2 className="section-heading text-center mb-12 dark:text-white">
             Why Learn With Us?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

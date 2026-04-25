@@ -20,10 +20,10 @@ const HeroSection: React.FC = () => {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link to="/pricing" className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary hover:bg-yellow-400 text-black text-base font-bold leading-normal transition-all shadow-md">
+              <Link to="/pricing" className="btn-primary-full">
                 Book Free Trial
               </Link>
-              <Link to="/tutors" className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-white border border-neutral-200 hover:bg-neutral-50 text-text-dark text-base font-bold leading-normal transition-all dark:bg-surface-dark dark:border-neutral-700 dark:text-text-light dark:hover:bg-neutral-800">
+              <Link to="/tutors" className="btn-secondary-full">
                 Browse Tutors
               </Link>
             </div>

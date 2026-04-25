@@ -46,8 +46,8 @@ const PricingPage: React.FC = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-16 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-background-dark">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="section-container bg-background-light dark:bg-background-dark">
+        <div className="section-inner">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {PRICING_PLANS.map((plan) => (
               <div 
@@ -55,7 +55,7 @@ const PricingPage: React.FC = () => {
                 className={`flex flex-col p-8 bg-white rounded-2xl border transition-all dark:bg-surface-dark 
                   ${plan.isPopular ? 'border-2 border-primary relative shadow-xl scale-105 z-10' : 'border-neutral-200 dark:border-neutral-800 hover:border-primary'}`}
               >
-                {plan.isPopular && <div className="absolute top-0 right-0 bg-primary text-black text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-lg">POPULAR</div>}
+                {plan.isPopular && <div className="pricing-badge">POPULAR</div>}
                 <h3 className="text-xl font-bold mb-2 dark:text-white">{plan.name}</h3>
                 <div className="flex items-baseline mb-6">
                   <span className="text-4xl font-black dark:text-white">{plan.price}</span>

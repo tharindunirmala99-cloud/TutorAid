@@ -10,13 +10,13 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
-      <div className="max-w-[1200px] mx-auto">
-        <h2 className="text-3xl font-black md:text-4xl mb-12 text-center font-display dark:text-white">How It Works</h2>
+    <section className="section-container bg-white dark:bg-surface-dark">
+      <div className="section-inner">
+        <h2 className="section-heading text-center mb-12 dark:text-white">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {steps.map((item, idx) => (
             <div key={idx} className="relative flex flex-col items-center text-center group">
-              <div className={`mb-4 flex h-16 w-16 items-center justify-center rounded-full font-bold text-xl shadow-lg z-10 
+              <div className={`step-circle mb-4 flex h-16 w-16 items-center justify-center rounded-full font-bold text-xl shadow-lg z-10 
                 ${item.step === 4 ? 'bg-secondary text-white' : item.step === 1 ? 'bg-primary text-black' : 'bg-white border-2 border-primary text-black dark:bg-surface-dark dark:text-white'}`}>
                 {item.step}
               </div>

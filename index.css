@@ -6,6 +6,315 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ===================================
+   REUSABLE COMPONENT STYLES
+   =================================== */
+
+/* Section Container */
+.section-container {
+    padding: 4rem 1rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .section-container {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-container {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+}
+
+.section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Heading */
+.section-heading {
+    font-size: 1.875rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.033em;
+    font-family: var(--font-display, system-ui);
+}
+
+@media (min-width: 768px) {
+    .section-heading {
+        font-size: 2.25rem;
+    }
+}
+
+.section-subheading {
+    color: #525252;
+    font-size: 1rem;
+    line-height: 1.625;
+}
+
+.dark .section-subheading {
+    color: #a3a3a3;
+}
+
+/* Card Styles */
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+.dark .card {
+    background-color: #1c1c1c;
+    border-color: #404040;
+}
+
+.card-hover:hover {
+    border-color: #f5d100;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Button */
+.btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    height: 2.5rem;
+    padding: 0 1rem;
+    background-color: #f5d100;
+    color: #000;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #facc15;
+}
+
+.btn-primary-full {
+    display: flex;
+    min-width: 160px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    height: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: #f5d100;
+    color: black;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: normal;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary-full:hover {
+    background-color: #facc15;
+}
+
+/* Secondary Button Full Width */
+.btn-secondary-full {
+    display: flex;
+    min-width: 160px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    height: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    color: #1c1c1c;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: normal;
+    transition: all 0.2s;
+}
+
+.btn-secondary-full:hover {
+    background-color: #f9fafb;
+}
+
+.dark .btn-secondary-full {
+    background-color: #1c1c1c;
+    border-color: #374151;
+    color: #f3f4f6;
+}
+
+.dark .btn-secondary-full:hover {
+    background-color: #262626;
+}
+
+/* Secondary Button */
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    height: 3rem;
+    padding: 0 1.5rem;
+    background-color: #fff;
+    color: #1c1c1c;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: 2px solid #e5e5e5;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #f5f5f5;
+}
+
+.dark .btn-secondary {
+    background-color: #1c1c1c;
+    color: #fff;
+    border-color: #404040;
+}
+
+.dark .btn-secondary:hover {
+    background-color: #262626;
+}
+
+/* Badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-primary {
+    background-color: #f5d100;
+    color: #000;
+}
+
+.badge-secondary {
+    background-color: #22c55e;
+    color: #fff;
+}
+
+/* Icon Circle */
+.icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background-color: rgba(245, 209, 0, 0.2);
+    color: #000;
+}
+
+/* Grid Layouts */
+.grid-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-cards-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .grid-cards-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-cards-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Pricing Card */
+.pricing-card-popular {
+    border: 2px solid #f5d100;
+    position: relative;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.pricing-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 0.75rem;
+    border-top-right-radius: 0.5rem;
+}
+
+/* Step Circle */
+.step-circle {
+    z-index: 10;
+}
+
+/* Subject Card */
+.subject-card {
+    transition: all 0.2s ease;
+}
+
+.subject-card:hover {
+    border-color: #f5d100;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Tutor Avatar */
+.tutor-avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 9999px;
+    border: 4px solid white;
+    position: absolute;
+    top: -2.5rem;
+    object-fit: cover;
+}
+
+.dark .tutor-avatar {
+    border-color: #1c1c1c;
+}
+
+/* ===================================
+   PREVIOUS STYLES (kept for compatibility)
+   =================================== */
+
 .snow {
     pointer-events: none;
     position: fixed;
