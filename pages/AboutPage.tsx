@@ -25,20 +25,51 @@ const AboutPage: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-2">
                 <span className="material-symbols-outlined text-3xl text-primary">flag</span>
               </div>
-              <h2 className="text-3xl font-black font-display dark:text-white">Our Mission</h2>
+              <h2 className="text-3xl font-black font-display dark:text-white">Our Brand Promise</h2>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                To make quality education accessible to every student, regardless of location or background. We believe that personalized learning is the key to academic success, and we're committed to connecting students with the right tutors who can unlock their full potential.
+                We don't just assign tutors. We match the right educator to the right student — and we stay accountable for the outcome.
               </p>
             </div>
             <div className="flex flex-col gap-4">
               <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-2">
                 <span className="material-symbols-outlined text-3xl text-secondary">visibility</span>
               </div>
-              <h2 className="text-3xl font-black font-display dark:text-white">Our Vision</h2>
+              <h2 className="text-3xl font-black font-display dark:text-white">Our Core Philosophy</h2>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                To become the world's leading online tutoring platform, where learning is engaging, effective, and tailored to each student's unique needs. We envision a future where every student has access to expert guidance that helps them achieve their academic dreams.
+                Tutoring is not a transaction. It's a relationship built on trust, structure, and sustained academic investment.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Unique Value Proposition */}
+      <section className="py-16 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-background-dark">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black mb-6 font-display dark:text-white">Our Unique Value Proposition</h2>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-4xl mx-auto">
+              TutorAid is the only online tutoring service in Sri Lanka that uses a curated, match-based model — where students never browse a marketplace, but instead receive a handpicked shortlist of qualified, screened, and trained tutors aligned with their curriculum, level, and learning style. Every session is backed by accountability, quality assurance, and structured progress monitoring.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white dark:bg-surface-dark p-8 rounded-2xl shadow-lg">
+              <h3 className="text-2xl font-black mb-4 font-display dark:text-white">What We Are</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Curated. Matched. Accountable. Premium online tutoring with structured onboarding and quality guarantees.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-surface-dark p-8 rounded-2xl shadow-lg">
+              <h3 className="text-2xl font-black mb-4 font-display dark:text-white">What We Are Not</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                A freelancer directory. A cheap listing platform. A marketplace where parents scroll through unverified profiles.
+              </p>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <blockquote className="text-xl italic text-neutral-700 dark:text-neutral-300 max-w-4xl mx-auto">
+              "TutorAid isn't a platform you use — it's a service you trust. We've built the infrastructure, screened the educators, and designed the experience so parents don't have to figure it out themselves."
+            </blockquote>
           </div>
         </div>
       </section>
@@ -58,13 +89,13 @@ const AboutPage: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-black mb-6 font-display dark:text-white">Our Story</h2>
               <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 <p>
-                  TutorAid was founded in 2020 by a group of educators who recognized the need for more personalized, accessible online learning solutions. What started as a small initiative to help students during the pandemic has grown into a thriving platform serving thousands of students worldwide.
+                  TutorAid was founded in 2025 by a group of educators in Sri Lanka who recognized the need for more personalized, accessible online learning solutions. What started as a small initiative to help students during the pandemic has grown into Sri Lanka's premier curated online tutoring service.
                 </p>
                 <p>
                   Our team brings together experienced educators, technology experts, and passionate individuals committed to transforming education. We've carefully curated a network of certified tutors who not only excel in their subjects but also understand how to make learning engaging and effective.
                 </p>
                 <p>
-                  Today, we're proud to have helped over 5,000 students achieve their academic goals, with a 95% satisfaction rate and countless success stories that inspire us to continue improving and expanding our services.
+                  Today, we're proud to have helped over 5,000 students achieve their academic goals, with a 95% satisfaction rate and countless success stories that inspire us to continue improving and expanding our services. As the only online tutoring service in Sri Lanka using a curated, match-based model, we ensure every student receives a handpicked tutor aligned with their needs.
                 </p>
               </div>
             </div>
@@ -75,22 +106,46 @@ const AboutPage: React.FC = () => {
       {/* Values */}
       <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
         <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black mb-12 text-center font-display dark:text-white">Our Core Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: 'school', title: 'Excellence', desc: 'We maintain the highest standards in tutor selection and educational quality.' },
-              { icon: 'diversity_3', title: 'Inclusivity', desc: 'We welcome students from all backgrounds and learning abilities.' },
-              { icon: 'lightbulb', title: 'Innovation', desc: 'We continuously improve our platform with cutting-edge technology.' },
-              { icon: 'favorite', title: 'Integrity', desc: 'We build trust through transparency, honesty, and accountability.' }
-            ].map((value, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-3xl text-primary">{value.icon}</span>
-                </div>
-                <h3 className="text-xl font-bold dark:text-white">{value.title}</h3>
-                <p className="text-neutral-600 dark:text-neutral-400 text-sm">{value.desc}</p>
-              </div>
-            ))}
+          <h2 className="text-3xl md:text-4xl font-black mb-12 text-center font-display dark:text-white">What Sets Us Apart</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <h3 className="text-2xl font-black mb-4 font-display dark:text-white">Competitive Differentiation</h3>
+              <ul className="text-neutral-600 dark:text-neutral-400 space-y-2 text-left">
+                <li>• Curated Matching — We select and shortlist tutors; students don't browse random profiles.</li>
+                <li>• Contracted Tutors — All educators are on formal contracts with reliability obligations.</li>
+                <li>• Curriculum Specificity — Dedicated exclusively to Edexcel and Cambridge (Primary through IGCSE).</li>
+                <li>• Free Trial Session — A 30-minute trial class before any financial commitment.</li>
+                <li>• Progress Accountability — Structured check-ins, session reports, and parent communication.</li>
+                <li>• Quality Training — All tutors go through internal onboarding and pedagogical alignment.</li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <h3 className="text-2xl font-black mb-4 font-display dark:text-white">Functional Value</h3>
+              <ul className="text-neutral-600 dark:text-neutral-400 space-y-2 text-left">
+                <li>• Curriculum-matched tutors</li>
+                <li>• Scheduled, reliable sessions</li>
+                <li>• Vetted, trained educators</li>
+                <li>• Progress tracking</li>
+                <li>• Exam-focused preparation</li>
+                <li>• Flexible online delivery</li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <h3 className="text-2xl font-black mb-4 font-display dark:text-white">Emotional Value</h3>
+              <ul className="text-neutral-600 dark:text-neutral-400 space-y-2 text-left">
+                <li>• Peace of mind for parents</li>
+                <li>• Confidence for students</li>
+                <li>• Sense of academic control</li>
+                <li>• Relief from worry</li>
+                <li>• Trust in a system</li>
+                <li>• Pride in progress</li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-center">
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+              <strong>Market Positioning:</strong> Premium Curated Tutoring — Not a Marketplace. TutorAid positions itself in the upper quadrant of the tutoring market — between expensive in-person tutoring centres and unreliable freelance platforms. The white space: a structured, premium online service that feels personal, accountable, and professional.
+            </p>
           </div>
         </div>
       </section>

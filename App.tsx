@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 //import SnowfallEffect from './components/Effects/SnowfallEffect';
 import "./index.css"
 import ScrollToTop from './components/Functions/ScrollToTop';
+import JobApplicationForm from './pages/JobApplicationForm';
 
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -43,6 +44,7 @@ const App: React.FC = () => {
             {/* <Route path="/pricing" element={<PricingPage />} /> */}
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/careers" element={<CareersPage />} />
+            <Route path="/careers/apply" element={<JobApplicationForm />} />
           </Routes>
         </main>
         <Footer />

@@ -69,69 +69,105 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <form id="contact-form" onSubmit={handleSubmit} className="max-w-md mx-auto bg-white dark:bg-surface-dark rounded-2xl shadow-xl p-8 mt-10">
-      <h2 className="text-2xl font-black mb-6 dark:text-white text-center">Contact Us</h2>
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-2 dark:text-white">Name *</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-neutral-800 dark:text-white"
-          placeholder="Your Name"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-2 dark:text-white">Mobile Number *</label>
-        <input
-          type="tel"
-          name="mobile"
-          value={formData.mobile}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-neutral-800 dark:text-white"
-          placeholder="e.g., +1 234 567 8900"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-2 dark:text-white">Email *</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-neutral-800 dark:text-white"
-          placeholder="your@email.com"
-        />
-      </div>
-      <div className="mb-6">
-        <label className="block text-sm font-medium mb-2 dark:text-white">Message *</label>
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          rows={4}
-          className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-neutral-800 dark:text-white resize-none"
-          placeholder="Type your message here..."
-        />
-      </div>
-      <button
-        type="submit"
-        disabled={isLoading}
-        className="w-full px-6 py-3 bg-secondary text-white font-bold rounded-lg hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {isLoading ? 'Sending...' : 'Send Message'}
-      </button>
-      {error && (
-        <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-          {error}
+    <div className="w-full bg-white dark:bg-neutral-900 py-16 px-4 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Image Section */}
+          <div className="flex justify-center lg:justify-start">
+            <div className="w-full max-w-md h-240 bg-gradient-to-br from-gray-200 to-gray-300 rounded-3xl flex items-center justify-center overflow-hidden">
+              <div className="text-center text-gray-400">
+                {/* Placeholder for customer support image */}
+                <img src="./media/Contact Us.png" alt="Contact Support" className="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Form Section */}
+          <div className="w-full">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Send us a message</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              Your satisfaction is our top priority, and we are committed to providing exceptional service and support
+            </p>
+
+            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Your Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-5 py-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  placeholder="Name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-5 py-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  placeholder="Email"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-5 py-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  placeholder="Phone"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Description <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                  className="w-full px-5 py-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+                  placeholder="Message"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? 'Sending...' : 'Send'}
+              </button>
+
+              {error && (
+                <div className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 rounded-lg">
+                  {error}
+                </div>
+              )}
+            </form>
+          </div>
         </div>
-      )}
-    </form>
+      </div>
+    </div>
   );
 };
 

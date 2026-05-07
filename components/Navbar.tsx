@@ -19,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
     { name: 'Subjects', path: '/subjects' },
     { name: 'Tutors', path: '/tutors' },
     // { name: 'Pricing', path: '/pricing' },
-    { name: 'Blog', path: '/blog' },
+    // { name: 'Blog', path: '/blog' },
     { name: 'Careers', path: '/careers' }
   ];
   const navigate = useNavigate();

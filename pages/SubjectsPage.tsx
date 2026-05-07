@@ -10,17 +10,17 @@ const SubjectsPage: React.FC = () => {
     { icon: 'science', name: 'Science', category: 'STEM', tutors: 38, description: 'Physics, Chemistry, Biology' },
     { icon: 'computer', name: 'ICT', category: 'STEM', tutors: 32, description: 'Programming, Web Development, Database' },
     { icon: 'menu_book', name: 'English', category: 'Languages', tutors: 52, description: 'Literature, Writing, Grammar, Communication' },
-    { icon: 'translate', name: 'Sinhala', category: 'Languages', tutors: 28, description: 'Language & Literature' },
-    { icon: 'language', name: 'Tamil', category: 'Languages', tutors: 24, description: 'Language & Literature' },
-    { icon: 'business_center', name: 'Business', category: 'Commerce', tutors: 30, description: 'Economics, Accounting, Marketing' },
-    { icon: 'account_balance', name: 'Commerce', category: 'Commerce', tutors: 26, description: 'Finance, Trade, Business Studies' },
-    { icon: 'history_edu', name: 'History', category: 'Humanities', tutors: 22, description: 'World History, Local History' },
-    { icon: 'public', name: 'Geography', category: 'Humanities', tutors: 20, description: 'Physical & Human Geography' },
-    { icon: 'psychology', name: 'Psychology', category: 'Humanities', tutors: 18, description: 'Human Behavior & Mental Processes' },
-    { icon: 'music_note', name: 'Music', category: 'Arts', tutors: 15, description: 'Theory, Performance, Composition' }
+    // { icon: 'translate', name: 'Sinhala', category: 'Languages', tutors: 28, description: 'Language & Literature' },
+    // { icon: 'language', name: 'Tamil', category: 'Languages', tutors: 24, description: 'Language & Literature' },
+    // { icon: 'business_center', name: 'Business', category: 'Commerce', tutors: 30, description: 'Economics, Accounting, Marketing' },
+    // { icon: 'account_balance', name: 'Commerce', category: 'Commerce', tutors: 26, description: 'Finance, Trade, Business Studies' },
+    // { icon: 'history_edu', name: 'History', category: 'Humanities', tutors: 22, description: 'World History, Local History' },
+    // { icon: 'public', name: 'Geography', category: 'Humanities', tutors: 20, description: 'Physical & Human Geography' },
+    // { icon: 'psychology', name: 'Psychology', category: 'Humanities', tutors: 18, description: 'Human Behavior & Mental Processes' },
+    // { icon: 'music_note', name: 'Music', category: 'Arts', tutors: 15, description: 'Theory, Performance, Composition' }
   ];
 
-  const categories = ['All', 'STEM', 'Languages', 'Commerce', 'Humanities', 'Arts'];
+  const categories = ['All', 'STEM', 'Languages'];
 
   const filteredSubjects = selectedCategory === 'All' 
     ? subjects 

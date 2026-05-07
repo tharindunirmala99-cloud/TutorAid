@@ -45,28 +45,10 @@ const CareersPage: React.FC = () => {
             {/* Example positions, replace with dynamic data as needed */}
             {[
               {
-                title: 'Frontend Developer',
-                type: 'Full-time',
-                location: 'Remote',
-                desc: 'Build beautiful, performant web experiences for students and tutors.'
-              },
-              {
                 title: 'Online Tutor (All Subjects)',
                 type: 'Part-time / Contract',
                 location: 'Remote',
                 desc: 'Help students achieve their goals by providing personalized online tutoring.'
-              },
-              {
-                title: 'Content Writer',
-                type: 'Freelance',
-                location: 'Remote',
-                desc: 'Create engaging educational content and resources for our learning hub.'
-              },
-              {
-                title: 'Customer Success Specialist',
-                type: 'Full-time',
-                location: 'Remote',
-                desc: 'Support students and tutors, ensuring a smooth and positive experience.'
               }
             ].map((job, idx) => (
               <div key={idx} className="bg-white dark:bg-surface-dark rounded-xl border border-neutral-200 dark:border-neutral-800 p-8 flex flex-col gap-4 shadow-md">
@@ -79,7 +61,7 @@ const CareersPage: React.FC = () => {
                   <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full font-bold">{job.location}</span>
                 </div>
                 <p className="text-neutral-600 dark:text-neutral-400">{job.desc}</p>
-                <button className="mt-auto px-6 py-2 bg-primary hover:bg-yellow-400 text-black font-bold rounded-lg transition-colors w-fit self-end">Apply Now</button>
+                <button onClick={() => window.open("https://forms.gle/znbEzYTA2EexZZGv5", "_blank")} className="mt-auto px-6 py-2 bg-primary hover:bg-yellow-400 text-black font-bold rounded-lg transition-colors w-fit self-end">Apply Now</button>
               </div>
             ))}
           </div>

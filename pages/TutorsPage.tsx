@@ -7,7 +7,7 @@ const TutorsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('All Subjects');
 
-  const subjects = ['All Subjects', 'Mathematics', 'Science', 'English', 'Business', 'ICT', 'History'];
+  const subjects = ['All Subjects', 'Mathematics', 'Science', 'English', 'ICT'];
 
   const filteredTutors = TUTORS.filter(tutor => {
     const matchesSearch = tutor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

@@ -8,10 +8,10 @@ const SubjectsSection: React.FC = () => {
     { icon: 'science', name: 'Science' },
     { icon: 'menu_book', name: 'English' },
     { icon: 'computer', name: 'ICT' },
-    { icon: 'translate', name: 'Sinhala' },
-    { icon: 'language', name: 'Tamil' },
-    { icon: 'business_center', name: 'Business' },
-    { icon: 'history_edu', name: 'History' }
+    // { icon: 'translate', name: 'Sinhala' },
+    // { icon: 'language', name: 'Tamil' },
+    // { icon: 'business_center', name: 'Business' },
+    // { icon: 'history_edu', name: 'History' }
   ];
 
   return (
