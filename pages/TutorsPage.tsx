@@ -7,12 +7,12 @@ const TutorsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('All Subjects');
 
-  const subjects = ['All Subjects', 'Mathematics', 'Science', 'English', 'ICT'];
+  const subjects = ['All Subjects', 'Mathematics', 'Science', 'English', 'Computer Science', 'TESOL'];
 
   const filteredTutors = TUTORS.filter(tutor => {
     const matchesSearch = tutor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          tutor.subject.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesSubject = selectedSubject === 'All Subjects' || tutor.subject === selectedSubject;
+    const matchesSubject = selectedSubject === 'All Subjects' || tutor.tags.includes(selectedSubject);
     return matchesSearch && matchesSubject;
   });
 

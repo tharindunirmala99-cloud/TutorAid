@@ -4,33 +4,63 @@ import { Tutor, Testimonial, BlogPost, PricingPlan } from '../types';
 export const TUTORS: Tutor[] = [
   {
     id: '1',
-    name: 'Sarah Jenkins',
-    subject: 'Mathematics Expert',
-    rating: 4.9,
-    bio: 'Passionate about making Math easy to understand. 5 years of experience teaching high school algebra and calculus.',
-    tags: ['Algebra', 'Calculus'],
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAqR-G0cF6KCcQ2Vff8QKurStKSqq5-y5ex49UdKbl3fycYcAQQ4G9C1QpEfgIqMT3DUr6d_mjr5QOOdnAnblEb46Ev7pYEbclidp5zI6g300h-6BTV8Yi-RlDRTrPxielceCHWlRDeV-S2R9OWmrbh7d0DrkzZiyoWJ2CI25UvHUwTUMJJjM2eIUi6u2lL59WhScm4YOw_xrZ-LW3oxjddMbN_LwVLdgHiqZVC5dL3wdUcWTH16QzyoxxrXqQQ1o-BxVxJsmp_7GBR',
-    gradient: 'from-primary/30 to-secondary/30'
-  },
-  {
-    id: '2',
-    name: 'David Chen',
-    subject: 'Physics & Chemistry',
+    name: 'Suhani Wijetilake',
+    subject: 'Mathematics Specialist',
     rating: 5.0,
-    bio: 'PhD student offering in-depth science tutoring. I focus on practical examples to explain complex theories.',
-    tags: ['Physics', 'Chemistry'],
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBLAgyGUtYrSys2MFsH0lvhTuJINLmn7YtKTz9gmlv1x7-OmA8OI6g0YshmnjpUOERQepXoMLRB0tameqXFFprqtds5siSNkczpJ0D3JiSzhfWi8IvQly9NBKVJZuGp_EO8xoQxpkxQ2Km5_kQbhGkd_qNo-BFTYVrP1Ioz8HMcz1SkpI1Kr_j4URYAN7TiGHuUSUmB2PYzDFoOE0tdm7ZYWbwNg92HHoSdfv2b8MiXRuLqzotYzTmCLBuGHu0vchctbhJ8F8PzUIuI',
+    bio: 'Maths Tutor with over 10 years of experience. I help students master the UK National Curriculum, Edexcel, and Cambridge syllabuses with a professional, student-centered approach.',
+    tags: ['Mathematics', 'Edexcel', 'Cambridge'],
+    imageUrl: './media/images/tutor_photos/Suhani Wijetilake.png',
     gradient: 'from-blue-200 to-indigo-200'
   },
   {
+    id: '2',
+    name: 'Needra Rosary',
+    subject: 'Maths & Science Specialist',
+    rating: 5.0,
+    bio: 'Civil Engineer and tutor with 5+ years of experience. I specialize in making complex GCSE and IGCSE concepts simple and engaging for all learning styles.',
+    tags: ['Mathematics', 'Science'],
+    imageUrl: './media/images/tutor_photos/Needra Rosary.jpg',
+    gradient: 'from-primary/30 to-secondary/30'
+  },
+  {
     id: '3',
-    name: 'Emily Rose',
-    subject: 'English Literature',
-    rating: 4.8,
-    bio: 'Helping students find their voice in writing. Specializing in essay composition and literature analysis.',
-    tags: ['Essay Writing', 'Literature'],
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAaOgjw9eLft7HzD3H2W2ddL8i6BTXgSBkg4EtAcv0e6h55ck0d4wljXCd5_WFXmC7DB8EC0bL532G-VgLHZraP0OIsNybvEWZh1X8GHqh8St-0I7kvEm-qdPGXN02LVk8gQHgCNPxGE8yFfg5K5P3Ki_VqEHMHH66m1Ni1_eqmiC9Y27LnQ0-dUKoB3a3Oz1M8JzSckgW10snIFXbUIaxLCX7-VsMT3SEm-OQM1eZKVoRXVlmiYleRWkPiLaiYbtvlmb7P7HlM68CB',
+    name: 'Khadija Shiraz',
+    subject: 'English Language Teacher',
+    rating: 4.0,
+    bio: 'I focus on building confidence in reading, writing, speaking, and listening through meaningful activities and discussions in a supportive classroom environment.',
+    tags: ['English'],
+    imageUrl: './media/images/tutor_photos/Khadija Shiraz.jpg',
     gradient: 'from-green-200 to-emerald-200'
+  },
+  {
+    id: '4',
+    name: 'Saman Pitawala',
+    subject: 'English Language Expert (ELT)',
+    rating: 3.0,
+    bio: 'Highly qualified ELT professional (MA in TESOL) providing simple and interesting lessons tailored to the student’s level. Expert in Grammar and the four language skills.',
+    tags: ['English', 'TESOL'],
+    imageUrl: './media/images/tutor_photos/saman pitawala.jpg',
+    gradient: 'from-purple-200 to-pink-200'
+  },
+  {
+    id: '5',
+    name: 'Azka Nawshad',
+    subject: 'Mathematics & Computer Science',
+    rating: 5.0,
+    bio: 'Master’s graduate in Computer Science with 8 years of tutoring experience. I simplify complex Mathematics for primary and GCSE students while incorporating Child Psychology insights.',
+    tags: ['Mathematics', 'Computer Science', 'Science'],
+    imageUrl: './media/images/tutor_photos/Azka Shereen.jpeg',
+    gradient: 'from-orange-200 to-yellow-200'
+  },
+  {
+    id: '6',
+    name: 'Janani Pitawala',
+    subject: 'Mathematics Tutor',
+    rating: 5.0,
+    bio: 'Undergraduate at University of Moratuwa. I provide interactive one-on-one Mathematics lessons for primary and secondary students, focusing on bridging learning gaps.',
+    tags: ['Mathematics'],
+    imageUrl: './media/images/tutor_photos/C Pitawala.jpg',
+    gradient: 'from-cyan-200 to-blue-200'
   }
 ];
 
