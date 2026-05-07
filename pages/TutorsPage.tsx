@@ -133,9 +133,9 @@ const TutorsPage: React.FC = () => {
               Want to Join Our Team?
             </h2>
             <p className="text-lg text-black/80 mb-6 max-w-2xl mx-auto">
-              Are you an experienced educator looking to make a difference? Apply to become a tutorAID tutor today.
+              Are you an experienced educator looking to make a difference? Apply to become a tutor today.
             </p>
-            <button className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-100 transition-colors shadow-lg">
+            <button onClick={() => window.open("https://forms.gle/znbEzYTA2EexZZGv5", "_blank")} className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-100 transition-colors shadow-lg">
               Apply Now
             </button>
           </div>
