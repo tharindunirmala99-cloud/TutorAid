@@ -30,7 +30,7 @@ const TopRatedTutors: React.FC = () => {
             <div key={tutor.id} className="card rounded-xl overflow-hidden shadow-md card-hover dark:border-neutral-800">
               <div className={`h-24 bg-gradient-to-r ${tutor.gradient}`}></div>
               <div className="px-6 relative pb-6 flex flex-col h-full">
-                <img alt={tutor.name} className="tutor-avatar" src={tutor.imageUrl} />
+                {/* <img alt={tutor.name} className="tutor-avatar" src={tutor.imageUrl} /> */}
                 <div className="mt-12 flex justify-between items-start">
                   <div>
                     <h3 className="text-lg font-bold text-text-dark dark:text-text-light">{tutor.name}</h3>

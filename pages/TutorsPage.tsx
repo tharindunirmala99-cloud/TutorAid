@@ -84,7 +84,7 @@ const TutorsPage: React.FC = () => {
               <div key={tutor.id} className="flex flex-col rounded-xl overflow-hidden bg-white shadow-md border border-neutral-100 hover:shadow-xl transition-all dark:bg-surface-dark dark:border-neutral-800">
                 <div className={`h-24 bg-gradient-to-r ${tutor.gradient}`}></div>
                 <div className="px-6 relative pb-6 flex flex-col h-full">
-                  <img alt={tutor.name} className="w-20 h-20 rounded-full border-4 border-white absolute -top-10 object-cover dark:border-surface-dark" src={tutor.imageUrl} />
+                  {/* <img alt={tutor.name} className="w-20 h-20 rounded-full border-4 border-white absolute -top-10 object-cover dark:border-surface-dark" src={tutor.imageUrl} /> */}
                   <div className="mt-12 flex justify-between items-start">
                     <div>
                       <h3 className="text-lg font-bold text-text-dark dark:text-text-light">{tutor.name}</h3>
@@ -133,7 +133,7 @@ const TutorsPage: React.FC = () => {
               Want to Join Our Team?
             </h2>
             <p className="text-lg text-black/80 mb-6 max-w-2xl mx-auto">
-              Are you an experienced educator looking to make a difference? Apply to become a tutor today.
+              Are you an experienced educator looking to make a difference? Apply to become atutor today.
             </p>
             <button onClick={() => window.open("https://forms.gle/znbEzYTA2EexZZGv5", "_blank")} className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-100 transition-colors shadow-lg">
               Apply Now
