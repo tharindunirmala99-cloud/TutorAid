@@ -47,7 +47,7 @@ const AboutPage: React.FC = () => {
       <section className="py-16 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-background-dark">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-6 font-display dark:text-white">Our Unique Value Proposition</h2>
+            <h2 className="text-3xl md:text-4xl font-black mb-6 font-display dark:text-white">Why choose Us?</h2>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-4xl mx-auto">
               TutorAid is the only online tutoring service in Sri Lanka that uses a curated, match-based model — where students never browse a marketplace, but instead receive a handpicked shortlist of qualified, screened, and trained tutors aligned with their curriculum, level, and learning style. Every session is backed by accountability, quality assurance, and structured progress monitoring.
             </p>
@@ -89,13 +89,7 @@ const AboutPage: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-black mb-6 font-display dark:text-white">Our Story</h2>
               <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 <p>
-                  TutorAid was founded in 2025 by a group of educators in Sri Lanka who recognized the need for more personalized, accessible online learning solutions. What started as a small initiative to help students during the pandemic has grown into Sri Lanka's premier curated online tutoring service.
-                </p>
-                <p>
-                  Our team brings together experienced educators, technology experts, and passionate individuals committed to transforming education. We've carefully curated a network of certified tutors who not only excel in their subjects but also understand how to make learning engaging and effective.
-                </p>
-                <p>
-                  Today, we're proud to have helped over 5,000 students achieve their academic goals, with a 95% satisfaction rate and countless success stories that inspire us to continue improving and expanding our services. As the only online tutoring service in Sri Lanka using a curated, match-based model, we ensure every student receives a handpicked tutor aligned with their needs.
+                  Founded in 2025, TutorAid is Sri Lanka’s premier curated online tutoring platform, dedicated to providing personalized and accessible learning experiences. Built by a passionate team of educators and technology experts, TutorAid connects students with carefully selected certified tutors who make learning engaging and effective. With over 20+ successful students and a growing community, we continue to help learners achieve their academic goals through our unique match-based tutoring approach.
                 </p>
               </div>
             </div>
@@ -104,7 +98,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values */}
-      <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
+      {/* <section className="py-16 px-4 md:px-10 lg:px-40 bg-white dark:bg-surface-dark">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-black mb-12 text-center font-display dark:text-white">What Sets Us Apart</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -148,7 +142,7 @@ const AboutPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Team Stats */}
       <section className="py-16 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-background-dark">

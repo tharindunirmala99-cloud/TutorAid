@@ -44,10 +44,10 @@ const LandingPage: React.FC = () => {
       <HowItWorks />
       <div id="booking-form" ref={bookingFormRef} className="scroll-mt-28">
           <BookingForm />
-        </div>
+      </div>
       <TopRatedTutors />
       <TestimonialsSection />
-      <LearningHub />
+      {/* <LearningHub /> */}
       <div id="contact-form" ref={contactFormRef} className="scroll-mt-28">
         <ContactForm />
       </div>

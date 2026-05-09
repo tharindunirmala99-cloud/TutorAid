@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface FormData {
   // Step 1 - Student Details
@@ -20,6 +20,14 @@ interface FormData {
   howDidYouHear: string;
   notes: string;
 }
+
+const subjectsList = [
+  'Mathematics', 'Physics', 'Chemistry', 'Biology', 'English Language',
+  'English Literature', 'History', 'Geography', 'Economics', 'Business Studies',
+  'Accounting', 'Computer Science', 'Programming', 'Statistics', 'Psychology',
+  'Sociology', 'Law', 'Political Science', 'Art & Design', 'Music',
+  'French', 'Spanish', 'German', 'Mandarin', 'Other'
+];
 
 const BookingForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -43,15 +51,88 @@ const BookingForm: React.FC = () => {
     notes: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
+  const [isSubjectsOpen, setIsSubjectsOpen] = useState(false);
+  const subjectsDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Sync selectedSubjects with formData.subjectsNeeded when form resets
+  useEffect(() => {
+    if (formData.subjectsNeeded) {
+      setSelectedSubjects(formData.subjectsNeeded.split(', ').filter(s => s));
+    } else {
+      setSelectedSubjects([]);
+    }
+  }, [formData.subjectsNeeded]);
+
+  // Keep formData.subjectsNeeded in sync with selectedSubjects
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      subjectsNeeded: selectedSubjects.join(', ')
+    }));
+  }, [selectedSubjects]);
+
+  // Click outside to close dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (subjectsDropdownRef.current && !subjectsDropdownRef.current.contains(event.target as Node)) {
+        setIsSubjectsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const toggleSubject = (subject: string) => {
+    setSelectedSubjects(prev =>
+      prev.includes(subject)
+        ? prev.filter(s => s !== subject)
+        : [...prev, subject]
+    );
+  };
+
+  const removeSubject = (subject: string) => {
+    setSelectedSubjects(prev => prev.filter(s => s !== subject));
+  };
+
+  // Validation: returns true if all required fields in current step are filled
+  const validateStep = (step: number): boolean => {
+    switch (step) {
+      case 1:
+        return !!(
+          formData.studentName.trim() &&
+          formData.dob &&
+          formData.parentName.trim() &&
+          formData.parentEmail.trim() &&
+          formData.contactNumber.trim() &&
+          formData.country
+        );
+      case 2:
+        return !!(
+          formData.curriculum &&
+          formData.grade &&
+          formData.subjectsNeeded.trim() &&
+          formData.classType
+        );
+      case 3:
+        return !!formData.timeSlots;
+      default:
+        return true;
+    }
+  };
+
   const handleNext = () => {
-    if (currentStep < 3) {
-      setCurrentStep(prev => prev + 1);
+    if (validateStep(currentStep)) {
+      if (currentStep < 3) {
+        setCurrentStep(prev => prev + 1);
+      }
+    } else {
+      alert('Please fill in all required fields before proceeding.');
     }
   };
 
@@ -61,11 +142,14 @@ const BookingForm: React.FC = () => {
     }
   };
 
-  // Use Vite env variable for Google Apps Script Web App URL
   const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateStep(3)) {
+      alert('Please fill in all required fields before submitting.');
+      return;
+    }
     setIsLoading(true);
     setError(null);
 
@@ -79,7 +163,6 @@ const BookingForm: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
-      // no-cors mode means we can't read the response, but request was sent
       setIsSubmitted(true);
     } catch (err) {
       console.error('Submission error:', err);
@@ -100,15 +183,15 @@ const BookingForm: React.FC = () => {
     'British Curriculum', 'CBSE', 'ICSE', 'Other'
   ];
 
-  const grades = ['Kindergarten', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 
+  const grades = ['Kindergarten', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5',
     'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
 
-  const examSessions = ['May/June 2026', 'October/November 2026', 'May/June 2027', 'October/November 2027', 'Not Sure'];
+  const examSessions = ['May/June 2026', 'October/November 2026', 'May/June 2027', 'October/November 2027', 'Not Applicable'];
 
   const classTypes = ['One-on-One', 'Small Group (2-4)', 'Large Group (5+)'];
 
   const timeSlots = [
-    'Morning (8AM - 12PM)', 'Afternoon (12PM - 4PM)', 'Evening (4PM - 8PM)', 
+    'Morning (8AM - 12PM)', 'Afternoon (12PM - 4PM)', 'Evening (4PM - 8PM)',
     'Night (8PM - 10PM)', 'Weekends Only', 'Flexible'
   ];
 
@@ -127,12 +210,16 @@ const BookingForm: React.FC = () => {
           <p className="text-neutral-600 dark:text-neutral-400 mb-6">
             Thank you for your booking request. We will review your details and get back to you within 24-48 hours.
           </p>
-          <button 
-            onClick={() => { setIsSubmitted(false); setCurrentStep(1); setFormData({
-              studentName: '', dob: '', studentEmail: '', parentName: '', parentEmail: '',
-              contactNumber: '', country: '', curriculum: '', grade: '', subjectsNeeded: '',
-              examSession: '', classType: '', timeSlots: '', howDidYouHear: '', notes: ''
-            });}}
+          <button
+            onClick={() => {
+              setIsSubmitted(false);
+              setCurrentStep(1);
+              setFormData({
+                studentName: '', dob: '', studentEmail: '', parentName: '', parentEmail: '',
+                contactNumber: '', country: '', curriculum: '', grade: '', subjectsNeeded: '',
+                examSession: '', classType: '', timeSlots: '', howDidYouHear: '', notes: ''
+              });
+            }}
             className="px-6 py-3 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors"
           >
             Submit Another Booking
@@ -176,10 +263,12 @@ const BookingForm: React.FC = () => {
           {currentStep === 1 && (
             <div className="space-y-6">
               <h3 className="text-xl font-bold mb-6 dark:text-white">Step 1: Student Details</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Student Name *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Student Name <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
                     name="studentName"
@@ -191,7 +280,9 @@ const BookingForm: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Date of Birth *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Date of Birth <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="date"
                     name="dob"
@@ -202,19 +293,20 @@ const BookingForm: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Student Email *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">Student Email</label>
                   <input
                     type="email"
                     name="studentEmail"
                     value={formData.studentEmail}
                     onChange={handleChange}
-                    required
                     className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-neutral-800 dark:text-white"
                     placeholder="student@email.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Parent Name *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Parent Name <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
                     name="parentName"
@@ -226,7 +318,9 @@ const BookingForm: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Parent Email *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Parent Email <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="email"
                     name="parentEmail"
@@ -238,7 +332,9 @@ const BookingForm: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Contact Number *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Contact Number <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="tel"
                     name="contactNumber"
@@ -250,7 +346,9 @@ const BookingForm: React.FC = () => {
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Country *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Country <span className="text-red-500">*</span>
+                  </label>
                   <select
                     name="country"
                     value={formData.country}
@@ -272,10 +370,12 @@ const BookingForm: React.FC = () => {
           {currentStep === 2 && (
             <div className="space-y-6">
               <h3 className="text-xl font-bold mb-6 dark:text-white">Step 2: Academic Details</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Curriculum *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Curriculum <span className="text-red-500">*</span>
+                  </label>
                   <select
                     name="curriculum"
                     value={formData.curriculum}
@@ -290,7 +390,9 @@ const BookingForm: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Grade *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Grade <span className="text-red-500">*</span>
+                  </label>
                   <select
                     name="grade"
                     value={formData.grade}
@@ -304,25 +406,70 @@ const BookingForm: React.FC = () => {
                     ))}
                   </select>
                 </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Subjects Needed *</label>
-                  <input
-                    type="text"
-                    name="subjectsNeeded"
-                    value={formData.subjectsNeeded}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-neutral-800 dark:text-white"
-                    placeholder="e.g., Mathematics, Physics, Chemistry"
-                  />
+
+                {/* Subjects Needed - custom multi-select with tiles */}
+                <div className="md:col-span-2" ref={subjectsDropdownRef}>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Subjects Needed <span className="text-red-500">*</span>
+                  </label>
+                  <div
+                    className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent dark:bg-neutral-800 cursor-pointer"
+                    onClick={() => setIsSubjectsOpen(!isSubjectsOpen)}
+                  >
+                    <div className="flex flex-wrap gap-2">
+                      {selectedSubjects.length === 0 ? (
+                        <span className="text-neutral-400 dark:text-neutral-500">Select subjects...</span>
+                      ) : (
+                        selectedSubjects.map(subject => (
+                          <span key={subject} className="inline-flex items-center gap-1 px-2 py-1 bg-primary/20 text-black dark:text-white rounded-full text-sm">
+                            {subject}
+                            <button
+                              type="button"
+                              onClick={(e) => { e.stopPropagation(); removeSubject(subject); }}
+                              className="hover:text-red-500 focus:outline-none"
+                              aria-label={`Remove ${subject}`}
+                            >
+                              ✕
+                            </button>
+                          </span>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                  {isSubjectsOpen && (
+                    <div className="absolute z-10 mt-1 w-full max-h-60 overflow-auto bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 rounded-lg shadow-lg">
+                      {subjectsList.map(subject => (
+                        <div
+                          key={subject}
+                          onClick={() => toggleSubject(subject)}
+                          className={`px-4 py-2 cursor-pointer hover:bg-primary/20 dark:hover:bg-primary/30 ${
+                            selectedSubjects.includes(subject) ? 'bg-primary/10 dark:bg-primary/20' : ''
+                          }`}
+                        >
+                          <div className="flex items-center">
+                            <input
+                              type="checkbox"
+                              checked={selectedSubjects.includes(subject)}
+                              onChange={() => {}}
+                              className="mr-3 pointer-events-none"
+                            />
+                            {subject}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+                    Click on a subject to add/remove. Selected subjects appear as tiles.
+                  </p>
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Exam Session *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">Exam Session</label>
                   <select
                     name="examSession"
                     value={formData.examSession}
                     onChange={handleChange}
-                    required
                     className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-neutral-800 dark:text-white"
                   >
                     <option value="">Select Exam Session</option>
@@ -332,7 +479,9 @@ const BookingForm: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Class Type *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Class Type <span className="text-red-500">*</span>
+                  </label>
                   <select
                     name="classType"
                     value={formData.classType}
@@ -354,10 +503,12 @@ const BookingForm: React.FC = () => {
           {currentStep === 3 && (
             <div className="space-y-6">
               <h3 className="text-xl font-bold mb-6 dark:text-white">Step 3: Extra Details</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">Preferred Time Slots *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">
+                    Preferred Time Slots <span className="text-red-500">*</span>
+                  </label>
                   <select
                     name="timeSlots"
                     value={formData.timeSlots}
@@ -372,12 +523,11 @@ const BookingForm: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 dark:text-white">How did you hear about us? *</label>
+                  <label className="block text-sm font-medium mb-2 dark:text-white">How did you hear about us?</label>
                   <select
                     name="howDidYouHear"
                     value={formData.howDidYouHear}
                     onChange={handleChange}
-                    required
                     className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-neutral-800 dark:text-white"
                   >
                     <option value="">Select Option</option>
@@ -414,7 +564,7 @@ const BookingForm: React.FC = () => {
             ) : (
               <div />
             )}
-            
+
             {currentStep < 3 ? (
               <button
                 type="button"
@@ -433,7 +583,7 @@ const BookingForm: React.FC = () => {
               </button>
             )}
           </div>
-          
+
           {error && (
             <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
               {error}

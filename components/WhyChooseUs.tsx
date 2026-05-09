@@ -13,7 +13,7 @@ const WhyChooseUs: React.FC = () => {
     <section className="section-container bg-white dark:bg-surface-dark">
       <div className="section-inner">
         <div className="text-center mb-12">
-          <h2 className="section-heading dark:text-white mb-4">Why choose tutorAID?</h2>
+          <h2 className="section-heading dark:text-white mb-4">Why choose TutorAid?</h2>
           <p className="section-subheading max-w-2xl mx-auto">
             We provide the tools and support needed for academic success, tailored to each student's unique journey.
           </p>

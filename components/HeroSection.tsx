@@ -9,9 +9,9 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col-reverse gap-6 py-10 lg:flex-row lg:items-center lg:gap-16">
           <div className="flex flex-col gap-6 lg:w-1/2 items-start">
             <div className="flex flex-col gap-4 text-left">
-              <span className="w-fit rounded-full bg-primary/20 px-3 py-1 text-xs font-bold text-black dark:text-primary">
+              {/* <span className="w-fit rounded-full bg-primary/20 px-3 py-1 text-xs font-bold text-black dark:text-primary">
                 🚀 Start Learning Today
-              </span>
+              </span> */}
               <h1 className="text-text-dark dark:text-text-light text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl lg:text-6xl font-display">
                 Personalized Online Tutoring for Every Student
               </h1>

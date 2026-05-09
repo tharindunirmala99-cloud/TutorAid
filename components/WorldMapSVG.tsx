@@ -20,6 +20,12 @@ const pinData = [
     left: '54%',
     top: '39%',
   },
+  {
+      country: 'Australia',
+      flagUrl: 'https://kapowaz.github.io/circle-flags/flags/au.svg',
+      left: '83%',
+      top: '80%',
+    },
 ];
 
 const WorldMapSVG: React.FC = () => (
