@@ -22,7 +22,7 @@ interface FormData {
 }
 
 const subjectsList = [
-  'Mathematics', 'Physics', 'Chemistry', 'Biology', 'English Language',
+  'Mathematics', 'Physics', 'Chemistry', 'Biology', 'English Language','ICT',
   'English Literature', 'History', 'Geography', 'Economics', 'Business Studies',
   'Accounting', 'Computer Science', 'Programming', 'Statistics', 'Psychology',
   'Sociology', 'Law', 'Political Science', 'Art & Design', 'Music',
@@ -179,16 +179,15 @@ const BookingForm: React.FC = () => {
   ];
 
   const curricula = [
-    'IB (International Baccalaureate)', 'Cambridge (IGCSE/A-Level)', 'American Curriculum',
-    'British Curriculum', 'CBSE', 'ICSE', 'Other'
+   'Cambridge (IGCSE/A-Level)','British Curriculum','Sri Lankan National Curriculum', 'American Curriculum', 'Other'
   ];
 
   const grades = ['Kindergarten', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5',
-    'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
+    'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12', 'Grade 13'];
 
   const examSessions = ['May/June 2026', 'October/November 2026', 'May/June 2027', 'October/November 2027', 'Not Applicable'];
 
-  const classTypes = ['One-on-One', 'Small Group (2-4)', 'Large Group (5+)'];
+  const classTypes = ['One-on-One', 'Small Group (2-4)'];
 
   const timeSlots = [
     'Morning (8AM - 12PM)', 'Afternoon (12PM - 4PM)', 'Evening (4PM - 8PM)',

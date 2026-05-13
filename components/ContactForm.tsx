@@ -32,7 +32,7 @@ const ContactForm: React.FC = () => {
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
+       //mode: 'no-cors',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8',
         },
@@ -74,11 +74,12 @@ const ContactForm: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Image Section */}
           <div className="flex justify-center lg:justify-start">
-            <div className="w-full max-w-md h-240 bg-gradient-to-br from-gray-200 to-gray-300 rounded-3xl flex items-center justify-center overflow-hidden">
-              <div className="text-center text-gray-400">
-                {/* Placeholder for customer support image */}
-                <img src="./media/Contact Us.png" alt="Contact Support" className="w-full h-full object-contain" />
-              </div>
+            <div className="w-full max-w-2xl h-200 rounded-3xl flex items-center justify-center overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?q=80&w=1170&auto=format&fit=crop" 
+                alt="Contact Support" 
+                className="w-full h-full object-contain" 
+              />
             </div>
           </div>
 

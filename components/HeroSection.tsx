@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
                   />
                 ))}
               </div>
-              <span>Trusted by 5,000+ students</span>
+              <span>Trusted by 100+ students</span>
             </div>
           </div>
           <div className="w-full lg:w-1/2">

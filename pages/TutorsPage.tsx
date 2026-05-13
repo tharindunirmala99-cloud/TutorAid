@@ -2,10 +2,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TUTORS } from '../constants/constants';
+import { Tutor } from '../types';
+import TutorModal from '../components/TutorModal';
 
 const TutorsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('All Subjects');
+  const [selectedTutor, setSelectedTutor] = useState<Tutor | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (tutor: Tutor) => {
+    setSelectedTutor(tutor);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedTutor(null);
+  };
 
   const subjects = ['All Subjects', 'Mathematics', 'Science', 'English', 'Computer Science', 'TESOL'];
 
@@ -104,9 +118,12 @@ const TutorsPage: React.FC = () => {
                     ))}
                   </div>
                   <div className="mt-auto pt-6 flex gap-2">
-                    {/* <button className="flex-1 py-2 bg-primary hover:bg-yellow-400 text-black font-bold rounded-lg transition-colors text-sm">
-                      Book Session
-                    </button> */}
+                    <button
+                      onClick={() => openModal(tutor)}
+                      className="flex-1 py-2 bg-primary hover:bg-yellow-400 text-black font-bold rounded-lg transition-colors text-sm"
+                    >
+                      See More
+                    </button>
                     {/* <button className="px-4 py-2 border-2 border-neutral-200 dark:border-neutral-700 hover:border-primary dark:hover:border-primary rounded-lg transition-colors">
                       <span className="material-symbols-outlined text-neutral-600 dark:text-neutral-400">visibility</span>
                     </button> */}
@@ -135,12 +152,18 @@ const TutorsPage: React.FC = () => {
             <p className="text-lg text-black/80 mb-6 max-w-2xl mx-auto">
               Are you an experienced educator looking to make a difference? Apply to become atutor today.
             </p>
-            <button onClick={() => window.open("https://forms.gle/znbEzYTA2EexZZGv5", "_blank")} className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-100 transition-colors shadow-lg">
+            <button onClick={() => window.location.href = '/careers'} className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-100 transition-colors shadow-lg">
               Apply Now
             </button>
           </div>
         </div>
       </section>
+
+      <TutorModal
+        tutor={selectedTutor}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </div>
   );
 };

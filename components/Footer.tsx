@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold text-white">Quick Links</h3>
             <ul className="flex flex-col gap-2 text-sm text-neutral-400">
               <li><Link to="/tutors" className="hover:text-primary transition-colors cursor-pointer">Find a Tutor</Link></li>
-              <li><Link to="/about" className="hover:text-primary transition-colors cursor-pointer">Become a Tutor</Link></li>
+              <li><Link to="/tutors#join-team" className="hover:text-primary transition-colors cursor-pointer">Become a Tutor</Link></li>
               <li><Link to="/subjects" className="hover:text-primary transition-colors cursor-pointer">Online Classes</Link></li>
               {/* <li><Link to="/pricing" className="hover:text-primary transition-colors cursor-pointer">Pricing Plans</Link></li> */}
             </ul>
