@@ -152,9 +152,9 @@ const TutorsPage: React.FC = () => {
             <p className="text-lg text-black/80 mb-6 max-w-2xl mx-auto">
               Are you an experienced educator looking to make a difference? Apply to become atutor today.
             </p>
-            <button onClick={() => window.location.href = '/careers'} className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-100 transition-colors shadow-lg">
+            <Link to="/careers" className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-100 transition-colors shadow-lg inline-flex items-center justify-center">
               Apply Now
-            </button>
+            </Link>
           </div>
         </div>
       </section>
