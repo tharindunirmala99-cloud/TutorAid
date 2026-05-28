@@ -24,25 +24,53 @@ const ContactForm: React.FC = () => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   setError(null);
+  //   try {
+  //     await fetch(GOOGLE_SCRIPT_URL, {
+  //       method: 'POST',
+  //      //mode: 'no-cors',
+  //       headers: {
+  //         'Content-Type': 'text/plain;charset=utf-8',
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+  //     setIsSubmitted(true);
+  //   } catch (err) {
+  //     setError('Failed to submit. Please try again.');
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  
     setIsLoading(true);
     setError(null);
+  
     try {
+  
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-       //mode: 'no-cors',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(formData),
       });
+  
       setIsSubmitted(true);
+  
     } catch (err) {
+  
       setError('Failed to submit. Please try again.');
+  
     } finally {
+  
       setIsLoading(false);
+  
     }
   };
 
