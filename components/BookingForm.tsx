@@ -170,6 +170,13 @@ const BookingForm: React.FC = () => {
       });
 
       setIsSubmitted(true);
+      window.dataLayer = window.dataLayer || []; 
+      window.dataLayer.push({ 
+        'event': 'form_submission',
+        'form_id': '1',
+        'form_name': 'booking_form'
+      });
+
     } catch (err) {
       console.error('Submission error:', err);
       setError('Failed to submit form. Please try again or contact us directly.');

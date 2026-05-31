@@ -5,3 +5,11 @@ declare module '*.svg?react' {
     const ReactComponent: React.FC<React.SVGProps<SVGSVGElement> & { title?: string }>;
     export default ReactComponent;
 }
+
+declare global {
+    interface Window {
+        dataLayer?: Array<Record<string, any>>;
+    }
+}
+
+export {};

@@ -62,6 +62,12 @@ const ContactForm: React.FC = () => {
       });
   
       setIsSubmitted(true);
+      window.dataLayer = window.dataLayer || []; 
+        window.dataLayer.push({ 
+          'event': 'form_submission',
+          'form_id': '2',
+          'form_name': 'contact_form'
+        });
   
     } catch (err) {
   
