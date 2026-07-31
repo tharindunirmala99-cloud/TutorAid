@@ -21,6 +21,7 @@ interface FormData {
   timeSlots: string;
   howDidYouHear: string;
   notes: string;
+  referralId: string;
 }
 
 const subjectsList = [
@@ -52,12 +53,34 @@ const BookingForm: React.FC = () => {
     classType: '',
     timeSlots: '',
     howDidYouHear: '',
-    notes: ''
+    notes: '',
+    referralId:''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
   const [isSubjectsOpen, setIsSubjectsOpen] = useState(false);
   const subjectsDropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+  
+    const referral =
+      params.get("referral_id") ||
+      localStorage.getItem("referral_id") ||
+      "";
+
+    if (params.get("referral_id")) {
+      localStorage.setItem("referral_id", referral);
+    }
+
+    console.log("Referral ID:", referral);
+  
+    setFormData(prev => ({
+      ...prev,
+      referralId: referral,
+    }));
+  }, []);
+
 
   // Sync selectedSubjects with formData.subjectsNeeded when form resets
   useEffect(() => {
@@ -167,7 +190,9 @@ const BookingForm: React.FC = () => {
           'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(formData),
+        
       });
+      console.log("Submitting data:", formData);
 
       setIsSubmitted(true);
       window.dataLayer = window.dataLayer || []; 
@@ -251,7 +276,7 @@ const BookingForm: React.FC = () => {
               setFormData({
                 studentName: '', dob: '', studentEmail: '', parentName: '', parentEmail: '',
                 contactNumber: '', preferredContact: '', customContact: '', country: '', curriculum: '', grade: '', subjectsNeeded: '',
-                examSession: '', classType: '', timeSlots: '', howDidYouHear: '', notes: ''
+                examSession: '', classType: '', timeSlots: '', howDidYouHear: '', notes: '', referralId:''
               });
             }}
             className="px-6 py-3 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors"
